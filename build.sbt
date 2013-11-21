@@ -1,17 +1,19 @@
+import VersionKeys._
+
 organization := "org.zeromq"
 
 name := "zeromq-scala-binding"
 
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.10.0"
+scalaVersion := "2.11.0-M7"
 
-scalaBinaryVersion <<= scalaVersion
+scalaTestVersion := "2.0.1-SNAP4"
 
 libraryDependencies ++= Seq(
   "net.java.dev.jna" %  "jna"           % "3.0.9",
   "com.github.jnr"   %  "jnr-constants" % "0.8.2",
-  "org.scalatest"    %  "scalatest_2.10"     % "2.0.M5b" % "test"
+  excludeOldModules("org.scalatest"    %%  "scalatest"    % scalaTestVersion.value % "test")
 )
 
 scalacOptions := Seq("-deprecation", "-unchecked")
